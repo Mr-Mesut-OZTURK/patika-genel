@@ -22,6 +22,10 @@
 > select \* from film
 > where length <= 50 and (rental_rate = 2.99 or rental_rate = 4.99);
 
+# ---------------------------------
+
+# ---------------------------------
+
 > # Ödev 2,
 
 - film tablosunda bulunan tüm sütunlardaki verileri replacement cost değeri 12.99 dan büyük eşit ve 16.99 küçük olma koşuluyla sıralayınız ( BETWEEN - AND yapısını kullanınız.)
@@ -39,3 +43,36 @@
 > -- select \* from film
 > -- where rental_rate in (0.99, 2.99, 4.99)
 > -- and replacement_cost in (12.99, 15.99, 28.99);
+
+# ---------------------------------
+
+# ---------------------------------
+
+> # Ödev 3,
+
+- country tablosunda bulunan country sütunundaki ülke isimlerinden 'A' karakteri ile başlayıp 'a' karakteri ile sonlananları sıralayınız.
+- country tablosunda bulunan country sütunundaki ülke isimlerinden en az 6 karakterden oluşan ve sonu 'n' karakteri ile sonlananları sıralayınız.
+- film tablosunda bulunan title sütunundaki film isimlerinden en az 4 adet büyük ya da küçük harf farketmesizin 'T' karakteri içeren film isimlerini sıralayınız.
+- film tablosunda bulunan tüm sütunlardaki verilerden title 'C' karakteri ile başlayan ve uzunluğu (length) 90 dan büyük olan ve rental_rate 2.99 olan verileri sıralayınız.
+
+---
+
+> -- select country from country
+> -- where country like 'A%a';
+>
+> -- select country from country
+> -- where country like '**\_**%n'
+>
+> -- select title from film
+> -- where title ilike '%t%t%t%t%'
+>
+> -- select title, length from film
+> -- where title like 'C%' and length > 90
+
+# ---------------------------------
+
+# ---------------------------------
+
+> # Ödev 4,
+
+-
