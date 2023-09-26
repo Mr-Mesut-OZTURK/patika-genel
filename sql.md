@@ -182,4 +182,39 @@
 
 > # Ödev 8,
 
+- test veritabanınızda employee isimli sütun bilgileri id(INTEGER), name VARCHAR(50), birthday DATE, email VARCHAR(100) olan bir tablo oluşturalım.
+- Oluşturduğumuz employee tablosuna 'Mockaroo' servisini kullanarak 50 adet veri ekleyelim.
+- Sütunların her birine göre diğer sütunları güncelleyecek 5 adet UPDATE işlemi yapalım.
+- Sütunların her birine göre ilgili satırı silecek 5 adet DELETE işlemi yapalım.
+
+---
+
+> -- create table employee (
+> -- id SERIAL primary key,
+> -- name varchar(50),
+> -- email varchar(100),
+> -- birthdate date
+> -- );
+>
+> -- insert into employee (name, email, birthdate) values ('Geno', > 'gsheed0@sciencedaily.com', '2010-06-07');
+> -- insert into employee (name, email, birthdate) values ('Gabriel', > 'gcaccavella1@ftc.gov', '2003-04-28');
+> -- insert into employee (name, email, birthdate) values ('Yalonda', > 'ycrouse2@slashdot.org', '1953-10-11');
+> -- insert into employee (name, email, birthdate) values ('Abbi', > 'amantha3@w3.org', '1986-08-01');
+> -- insert into employee (name, email, birthdate) values ('Alta', > 'adoni4@salon.com', '1993-08-30');
+>
+> -- update employee
+> -- set name = 'XXXX', email = 'XXXX@email.com'
+> -- where id < 6
+> -- returning \*
+>
+> -- delete from employee
+> -- where id > 45
+> -- returning \*
+
+# ---------------------------------
+
+# ---------------------------------
+
+> # Ödev 8,
+
 -
