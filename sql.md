@@ -1,7 +1,7 @@
 <h1 style="font-size:50px;text-align:center;margin-bottom:30px;">··· Patika SQL Tasks ···</h1>
 
 > <br/>
-
+>
 > # Ödev 1
 >
 > <ol>
@@ -13,22 +13,28 @@
 > </ol>
 > <br/>
 
----
+<br/>
 
 ```sql
+-- 1 --
 select title, description from film;
 
+-- 2 --
 select * from film
 where length in (60, 75);
 
+-- 3 --
 select * from film
 where rental_rate = 0.99 AND (replacement_cost = 12.99 OR replacement_cost = 28.99);
 
+-- 4 --
 select last_name from customer
 where first_name = 'Mary';
 
+-- 5 --
 select * from film
 where length <= 50 and (rental_rate = 2.99 or rental_rate = 4.99);
+
 ```
 
 <br/>
@@ -44,15 +50,18 @@ where length <= 50 and (rental_rate = 2.99 or rental_rate = 4.99);
 > </ol>
 > <br/>
 
----
+<br/>
 
 ```sql
+-- 1 --
 select \* from film
 where replacement_cost between 12.99 and 16.99;
 
+-- 2 --
 select first_name, last_name from actor
 where first_name in ('Penelope', 'Nick', 'Ed');
 
+-- 3 --
 select \* from film
 where rental_rate in (0.99, 2.99, 4.99)
 and replacement_cost in (12.99, 15.99, 28.99);
@@ -73,19 +82,22 @@ and replacement_cost in (12.99, 15.99, 28.99);
 > </ol>
 > <br/>
 
----
+<br/>
 
 ```sql
-
+-- 1 --
 select country from country
 where country like 'A%a';
 
+-- 2 --
 select country from country
 where country like '**\_**%n'
 
+-- 3 --
 select title from film
 where title ilike '%t%t%t%t%'
 
+-- 4 --
 select title, length from film
 where title like 'C%' and length > 90
 
@@ -105,20 +117,24 @@ where title like 'C%' and length > 90
 > <li>city tablosundaki şehir isimlerinin kaç tanesi 'R' veya r karakteri ile biter?</li>
 > </ol>
 
----
+<br/>
 
 ```sql
-
+-- 1 --
 select distinct replacement_cost from film;
 
+-- 2 --
 select count(distinct replacement_cost) from film;
 
+-- 3 --
 select count(\*) from film
 where title like 'T%' and rating = 'G';
 
+-- 4 --
 select count(*) from country
 where country like '**_**'
 
+-- 5 --
 select count(*) from city
 where city ilike '%R'
 
@@ -137,21 +153,23 @@ where city ilike '%R'
 > </ol>
 > <br/>
 
----
+<br/>
 
 ```sql
-
+-- 1 --
 select title, length from film
 where title like '%n'
 order by length DESC
 limit 5;
 
+-- 2 --
 select title, length from film
 where title like '%n'
 order by length ASC
 limit 5
 offset 5;
 
+-- 3 --
 select last_name, store_id from customer
 where store_id = 1
 order by last_name DESC
@@ -173,18 +191,21 @@ limit 4
 > </ol>
 > <br/>
 
----
+<br/>
 
 ```sql
-
+-- 1 --
 select avg(rental_rate) from film
 
+-- 2 --
 select count(*) from film
 where title like 'C%'
 
+-- 3 --
 select max(length) from film
 where rental_rate = 0.99
 
+-- 4 --
 select count(distinct(replacement_cost)) from film
 where length > 150
 
@@ -204,20 +225,23 @@ where length > 150
 > </ol>
 > <br/>
 
----
+<br/>
 
 ```sql
-
+-- 1 --
 select rating, count(rating) from film
 group by rating;
 
+-- 2 --
 select replacement_cost, count(length) from film
 group by replacement_cost
 having count(\*) > 50
 
+-- 3 --
 select store_id, count(\*) from customer
 group by store_id
 
+-- 4 --
 select country*id, count(*) from city
 group by country*id
 order by count(*) DESC
@@ -239,10 +263,10 @@ limit 1
 > </ol>
 > <br/>
 
----
+<br/>
 
 ```sql
-
+-- 1 --
 create table employee (
 id SERIAL primary key,
 name varchar(50),
@@ -250,17 +274,20 @@ email varchar(100),
 birthdate date
 );
 
+-- 2 --
 insert into employee (name, email, birthdate) values ('Geno', > 'gsheed0@sciencedaily.com', '2010-06-07');
 insert into employee (name, email, birthdate) values ('Gabriel', > 'gcaccavella1@ftc.gov', '2003-04-28');
 insert into employee (name, email, birthdate) values ('Yalonda', > 'ycrouse2@slashdot.org', '1953-10-11');
 insert into employee (name, email, birthdate) values ('Abbi', > 'amantha3@w3.org', '1986-08-01');
 insert into employee (name, email, birthdate) values ('Alta', > 'adoni4@salon.com', '1993-08-30');
 
+-- 3 --
 update employee
 set name = 'XXXX', email = 'XXXX@email.com'
 where id < 6
 returning *
 
+-- 4 --
 delete from employee
 where id > 45
 returning *
@@ -280,18 +307,20 @@ returning *
 > </ol>
 > <br/>
 
----
+<br/>
 
 ```sql
-
+-- 1 --
 select country._, city._ from country
 inner join city on country.country_id = city.country_id
 order by country.country;
 
+-- 2 --
 select payment.payment_id, customer.first_name, > customer.last_name
 from payment
 inner join customer on payment.customer_id = customer.> customer_id;
 
+-- 3 --
 select rental.rental_id, customer.first_name, customer.> last_name
 from rental
 inner join customer on customer.customer_id = rental.customer_id;
@@ -311,7 +340,7 @@ inner join customer on customer.customer_id = rental.customer_id;
 > </ol>
 > <br/>
 
----
+<br/>
 
 ```sql
 
@@ -345,24 +374,29 @@ full join rental on rental.customer_id = customer.customer_id;
 > </ol>
 > <br/>
 
----
+<br/>
 
 ```sql
+-- 1 --
 select first_name from actor
 union all
 select first_name from customer
 
+-- 2 --
 select first_name from actor
 intersect
 select first_name from customer
 
+-- 3 --
 select first_name from actor
 except
 select first_name from customer;
 
+-- 4 --
 SELECT first_name FROM actor
 UNION ALL
 SELECT first_name FROM customer;
+
 ```
 
 <br/>
@@ -379,10 +413,41 @@ SELECT first_name FROM customer;
 > </ol>
 > <br/>
 
----
+<br/>
 
 ```sql
 
+-- 1 --
+SELECT COUNT(*)
+FROM film
+WHERE length > (
+  SELECT AVG(length)
+  FROM film
+);
 
+-- 2 --
+SELECT COUNT(*)
+FROM film
+WHERE rental_rate = (
+  SELECT MAX(rental_rate)
+  FROM film
+);
+
+-- 3 --
+SELECT * FROM film
+WHERE rental_rate = (
+  SELECT MIN(rental_rate)
+  FROM film
+)
+AND replacement_cost = (
+  SELECT MIN(replacement_cost)
+  FROM film
+);
+
+-- 4 --
+SELECT customer_id, COUNT(*) AS transaction_count
+FROM payment
+GROUP BY customer_id
+ORDER BY transaction_count DESC;
 
 ```
