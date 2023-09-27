@@ -215,6 +215,22 @@
 
 # ---------------------------------
 
-> # Ödev 8,
+> # Ödev 9,
 
--
+- city tablosu ile country tablosunda bulunan şehir (city) ve ülke (country) isimlerini birlikte görebileceğimiz INNER JOIN sorgusunu yazınız.
+- customer tablosu ile payment tablosunda bulunan payment_id ile customer tablosundaki first_name ve last_name isimlerini birlikte görebileceğimiz INNER JOIN sorgusunu yazınız.
+- customer tablosu ile rental tablosunda bulunan rental_id ile customer tablosundaki first_name ve last_name isimlerini birlikte görebileceğimiz INNER JOIN sorgusunu yazınız.
+
+---
+
+> -- select country._, city._ from country
+> -- inner join city on country.country_id = city.country_id
+> -- order by country.country;
+>
+> -- select payment.payment_id, customer.first_name, > customer.last_name
+> -- from payment
+> -- inner join customer on payment.customer_id = customer.> customer_id;
+>
+> -- select rental.rental_id, customer.first_name, customer.> last_name
+> -- from rental
+> -- inner join customer on customer.customer_id = rental.customer_id;
