@@ -1,4 +1,4 @@
-import { uid } from "./mylib.js"
+import { circleArea, circleCircumference, uid } from "./mylib.js"
 
 /*
 Ödev 1
@@ -48,8 +48,27 @@ const addPost = (newItem) => {
 }
 
 
+
+/*
+Ödev 3
+Daire Modüler Dosyası
+ - Daire alan : circleArea ve daire çevre : 
+   circleCircumference fonksiyonları içeren ve 
+   consola sonuçları yazdıran circle.js dosyası oluşturunuz.
+
+ - module.exports yöntemi ile fonksiyonları oluştururken export ediniz.
+  
+ - require ve object destructing kullanarak index.js dosyasında yarıçap (r) 5 olacak şekilde ekran çıktısını alınız.
+*/
+
+const findCircleAreaAndCircumference = (r) => {
+    return console.log(`area: ${circleArea(r)}, circumference : ${circleCircumference(r)}`)
+}
+
+
 const main = () => {
     // getCircleArea()
-    addPost()
+    // addPost()
+    findCircleAreaAndCircumference(5)
 }
 main()

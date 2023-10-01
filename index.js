@@ -1,1 +1,1 @@
-import * as nodeTasks from './node-tasks.js'
+import * as nodeTasks from './src/node-tasks.js'
