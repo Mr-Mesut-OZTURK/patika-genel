@@ -1,0 +1,23 @@
+{
+  "name": "patika-genel",
+  "version": "1.0.0",
+  "description": "my studies",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mr-Mesut-OZTURK/patika-genel.git"
+  },
+  "keywords": [
+    "-"
+  ],
+  "author": "mesut",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mr-Mesut-OZTURK/patika-genel/issues"
+  },
+  "homepage": "https://github.com/Mr-Mesut-OZTURK/patika-genel#readme"
+}
