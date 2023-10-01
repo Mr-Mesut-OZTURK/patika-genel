@@ -1,3 +1,5 @@
+import { uid } from "./mylib.js"
+
 /*
 Ödev 1
 Node.JS Komut Satırı Kullanımı
@@ -17,4 +19,37 @@ const getCircleArea = () => {
     return `Yarıçapı ${values[0]} olan dairenin alanı: ${area}`
 }
 
-getCircleArea()
+
+
+/* 
+Post Sıralama ve Post Ekleme
+Blog oluşturmaya hazır mısınız? Konsol ekranında 
+postlarımızı sıralayalım, sonrasında yeni bir post 
+oluşturalım ve yeni post ile birlikte postlarımızı tekrar sıralayalım.
+*/
+
+const posts = [
+    { id: 1, name: 'book 1', author: 'author 1' },
+    { id: 2, name: 'book 2', author: 'author 2' },
+    { id: 3, name: 'book 3', author: 'author 3' },
+    { id: 4, name: 'book 4', author: 'author 4' },
+]
+
+const getPosts = () => {
+    posts.forEach(item => {
+        console.log(`${item.name} kitabının yazarı : ${item.author}`)
+    })
+}
+
+const addPost = (newItem) => {
+    const id = uid()
+    posts.push({ id, name: `book ${id}`, author: `author ${id}}` })
+    getPosts()
+}
+
+
+const main = () => {
+    // getCircleArea()
+    addPost()
+}
+main()
