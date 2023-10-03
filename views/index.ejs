@@ -63,17 +63,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
-                    <% console.log(posts) %>
-                    <% for (let i=0; i < posts.length; i++){ %>
+                    <% console.log(posts) %> <% for (let i=0; i < posts.length;
+                    i++){ %>
                     <div>
                         <div class="post-preview">
-                            <a href="/post">
+                            <a href="/post/<%= posts[i]._id %>">
                                 <h2 class="post-title">
                                     <%= posts[i].title %>
                                 </h2>
-                                <p class="post-subtitle">
+                                <!-- <p class="post-subtitle">
                                     <%= posts[i].description %>
-                                </h3>
+                                </h3> -->
                             </a>
                             <p class="post-meta">
                                 Posted by

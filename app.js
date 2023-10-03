@@ -35,9 +35,12 @@ app.post('/save-post', (req, res) => {
     Post.create(req.body);
     res.redirect('/');
 });
-app.get('/post', (req, res) => {
+app.get('/post/:id', async (req, res) => {
+    const id = req.params.id;
+    const post = await Post.findById(id);
+
     console.log(req.body);
-    res.render('post');
+    res.render('post', { post });
 });
 app.get('/about', (req, res) => {
     res.render('about');
