@@ -1,3 +1,4 @@
+const fs = require('fs')
 const Post = require("../models/Post")
 
 
@@ -19,7 +20,7 @@ exports.createPost = (req, res) => {
 
 
     sampleFile = req.files.image;
-    uploadPath = __dirname + '/public/uploads/' + uniqId + '-' + sampleFile.name;
+    uploadPath = __dirname + '/../public/uploads/' + uniqId + '-' + sampleFile.name;
 
     sampleFile.mv(uploadPath, async (err) => {
 
@@ -36,8 +37,6 @@ exports.createPost = (req, res) => {
 
 }
 
-
-
 exports.updatePost = async (req, res) => {
     const post = await Post.findOne({ _id: req.params.id })
     post.title = req.body.title
@@ -46,12 +45,10 @@ exports.updatePost = async (req, res) => {
     res.redirect(`/post/${req.params.id}`);
 }
 
-
-
 exports.deletePost = async (req, res) => {
 
     const post = await Post.findOne({ _id: req.params.id })
-    let deletedImage = __dirname + '/public' + post.imageUrl
+    let deletedImage = __dirname + '/../public' + post.imageUrl
     fs.unlinkSync(deletedImage, (err) => {
         console.log({ err })
     })

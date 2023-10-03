@@ -2,8 +2,17 @@ const Post = require('../models/Post')
 
 
 exports.getHomePage = async (req, res) => {
-    const posts = await Post.find({});
-    res.render('index', { posts });
+    const page = (req.query.page || 1) * 1
+    const postsPerPage = 1
+
+    const totalPostCount = await Post.find({}).countDocuments()
+    const posts = await Post
+        .find({})
+        .sort('-createdDate')
+        .skip((page - 1) * postsPerPage)
+        .limit(postsPerPage)
+
+    res.render('index', { posts, totalPostCount, postsPerPage, page });
 }
 
 
