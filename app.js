@@ -1,30 +1,42 @@
 const express = require('express');
-const ejs = require('ejs');
-const path = require('path');
+const mongoose = require('mongoose');
 
-const app = express();
+// const ejs = require('ejs');
+// const path = require('path');
+const Post = require('./models/Post');
+
 const port = 3000;
-const blog = { id: 1, title: 'Blog title', description: 'Blog description' };
+const app = express();
+
+mongoose.connect('mongodb://localhost/clean-data-db', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
 
 // TEMPLATE ENGINE
 app.set('view engine', 'ejs');
 
 // MIDDLEWARES
-// const exampleMiddleWare = (req, res, next) => {
-//     console.log({ req });
-//     next();
-// };
-// app.use(exampleMiddleWare);
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // routes
-app.get('/', (req, res) => {
-    res.render('index');
+app.get('/', async (req, res) => {
+    const posts = await Post.find({});
+    console.log({ posts });
+    res.render('index', { posts });
 });
-app.get('/add_post', (req, res) => {
+app.get('/add-post', (req, res) => {
     res.render('add_post');
 });
+app.post('/save-post', (req, res) => {
+    console.log(req.body);
+    Post.create(req.body);
+    res.redirect('/');
+});
 app.get('/post', (req, res) => {
+    console.log(req.body);
     res.render('post');
 });
 app.get('/about', (req, res) => {
