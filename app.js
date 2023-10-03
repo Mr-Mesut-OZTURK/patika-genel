@@ -2,6 +2,8 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const methodOverride = require('method-override')
 
+require('dotenv').config()
+
 const fs = require('fs')
 const mongoose = require('mongoose');
 const Post = require('./models/Post');
@@ -12,12 +14,12 @@ const postController = require('./controller/postController')
 const port = 3000;
 const app = express();
 
-mongoose.connect('mongodb://localhost/clean-data-db', {
+mongoose.connect(process.env.MONGO_DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
 
-
+// console.log("process", process.env.MONGO_DB_URL)
 
 
 // TEMPLATE ENGINE
